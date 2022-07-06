@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>cars</title>
+</head>
+<body>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Model</th>
+            <th>Service</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr th:each="ar, iterStat : ${cars}" th:style="${iterStat.odd}? 'font-weight: bold;'">
+                <td th:text="${ar.id}"></td>
+                <td th:text="${ar.model}"></td>
+                <td th:text="${ar.service}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
