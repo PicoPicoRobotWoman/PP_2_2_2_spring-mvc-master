@@ -20,8 +20,8 @@ public class CarController {
     CarService carService;
 
     @GetMapping(value = "/cars")
-    public String printCars(@RequestParam(value = "count", required = false) String count , ModelMap model) {
-        model.addAttribute("cars", carService.cars(count != null ? Integer.parseInt(count) : carService.cars().size()));
+    public String printCars(@RequestParam(value = "count", required = false) Integer count , ModelMap model) {
+        model.addAttribute("cars", carService.cars(count == null || count < 0 ?  carService.cars().size() : count ));
         return "cars";
     }
 }
